@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
+  <title>R.B. Prabhas Raju | Aspiring AI Engineer & BTech Student</title>
+  <meta name="title" content="R.B. Prabhas Raju | Aspiring AI Engineer & BTech Student" />
+  <meta name="description" content="Personal portfolio of R.B. Prabhas Raju. BTech 1st semester student, hackathon winner, and aspiring AI engineer passionate about Python, Web Development, and Generative AI." />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="R.B. Prabhas Raju | Aspiring AI Engineer & BTech Student" />
+  <meta property="og:description" content="Personal portfolio showcasing Python projects, hackathon achievements, and technical skills in Web Development and AI." />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN with Corporate Navy/Slate Theme Configuration -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            corporate: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              200: '#E2E8F0',
+              300: '#CBD5E1',
+              400: '#94A3B8',
+              500: '#64748B',
+              600: '#475569',
+              700: '#334155',
+              800: '#1E293B',
+              900: '#0F172A',
+              950: '#020617',
+            },
+            navy: {
+              800: '#172554',
+              900: '#0F172A',
+              950: '#0A0F1D',
+            },
+            accent: {
+              blue: '#2563EB',
+              hover: '#1D4ED8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Embedded CSS for Clean Typography, Accessibility, and Strict Anti-Neon Aesthetics -->
+  <style>
+    /* Reset & Base Typography */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle focus indicators for accessibility */
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid #2563EB;
+      outline-offset: 2px;
+    }
+
+    /* Modal Backdrop Transitions */
+    .modal-backdrop {
+      background-color: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Prevent body scroll when modal is open */
+    body.modal-open {
+      overflow: hidden;
+    }
+
+    /* Custom Hairline Dividers */
+    .hairline-b {
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .hairline-t {
+      border-top: 1px solid #E2E8F0;
+    }
+  </style>
+</head>
+
+<body class="bg-corporate-50 text-corporate-900 flex flex-col min-h-screen">
+
+  <!-- ========================================== -->
+  <!-- 1. HEADER / NAVBAR (3-Zone Clean Contract) -->
+  <!-- ========================================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-corporate-200 transition-shadow duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
+      
+      <!-- Zone 1: Brand Wordmark -->
+      <a href="#hero" class="text-lg font-bold tracking-tight text-corporate-900 hover:text-accent-blue transition-colors whitespace-nowrap shrink-0">
+        Prabhas Raju
+      </a>
+
+      <!-- Zone 2: Navigation Links (Desktop) -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-corporate-600">
+        <a href="#about" class="hover:text-corporate-900 transition-colors whitespace-nowrap">About</a>
+        <a href="#skills" class="hover:text-corporate-900 transition-colors whitespace-nowrap">Skills & Achievements</a>
+        <a href="#projects" class="hover:text-corporate-900 transition-colors whitespace-nowrap">Projects</a>
+        <a href="#contact" class="hover:text-corporate-900 transition-colors whitespace-nowrap">Contact</a>
+      </nav>
+
+      <!-- Zone 3: Primary Action & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wide text-white bg-corporate-900 rounded-lg hover:bg-corporate-800 transition-colors whitespace-nowrap">
+          Get in Touch
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button 
+          id="mobileMenuBtn" 
+          type="button" 
+          aria-label="Toggle navigation menu" 
+          aria-expanded="false" 
+          class="md:hidden p-2 text-corporate-600 hover:text-corporate-900 hover:bg-corporate-100 rounded-lg transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path id="hamburgerIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path id="closeIcon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-corporate-200 bg-white px-4 py-4 space-y-2">
+      <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-corporate-700 hover:bg-corporate-100 transition-colors">About</a>
+      <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-corporate-700 hover:bg-corporate-100 transition-colors">Skills & Achievements</a>
+      <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-corporate-700 hover:bg-corporate-100 transition-colors">Projects</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-corporate-700 hover:bg-corporate-100 transition-colors">Contact</a>
+      <div class="pt-2">
+        <a href="#contact" class="mobile-nav-link block text-center w-full px-4 py-2 text-xs font-semibold text-white bg-corporate-900 rounded-lg hover:bg-corporate-800 transition-colors">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- MAIN CONTENT CONTAINER                    -->
+  <!-- ========================================== -->
+  <main class="flex-grow">
+
+    <!-- ========================================== -->
+    <!-- 2. HERO SECTION                            -->
+    <!-- ========================================== -->
+    <section id="hero" class="relative py-16 sm:py-24 bg-white border-b border-corporate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl">
+          
+          <!-- Editorial Subtitle / Academic Role -->
+          <div class="text-sm font-semibold tracking-wide text-corporate-600 mb-4 flex items-center gap-2">
+            <span>Aspiring AI Engineer</span>
+            <span aria-hidden="true" class="text-corporate-400">·</span>
+            <span>BTech 1st Semester Student</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-corporate-900 text-balance leading-tight mb-6">
+            Hi, I'm R.B. Prabhas Raju
+          </h1>
+
+          <!-- Short Intro Narrative -->
+          <p class="text-base sm:text-lg text-corporate-600 leading-relaxed mb-8 max-w-2xl">
+            Passionate about solving problems through code, participating in hackathons, and exploring the intersections of Python, Web Development, and Generative AI.
+          </p>
+
+          <!-- Primary Call-to-Action Buttons -->
+          <div class="flex flex-wrap items-center gap-4">
+            <a 
+              href="#projects" 
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white bg-corporate-900 rounded-lg hover:bg-corporate-800 shadow-sm transition-all duration-150"
+            >
+              View Projects
+            </a>
+            
+            <a 
+              href="https://www.linkedin.com/in/r-b-prabhas-raju-353595432/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-corporate-800 bg-corporate-100 rounded-lg hover:bg-corporate-200 border border-corporate-200 transition-all duration-150"
+            >
+              <!-- LinkedIn Icon SVG -->
+              <svg class="w-4 h-4 text-corporate-700" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.62 1.62 0 1 0 0-3.24 1.62 1.62 0 0 0 0 3.24m1.4 9.74v-8.37H5.06v8.37h2.8z"/>
+              </svg>
+              <span>Connect on LinkedIn</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Academic & Ambition Metric Bar (Clean, Unboxed Metadata) -->
+        <div class="mt-14 pt-8 hairline-t grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 text-sm">
+          <div>
+            <div class="text-xs uppercase tracking-wider text-corporate-400 font-semibold mb-1">Academic Status</div>
+            <div class="font-semibold text-corporate-900">BTech in Computer Science</div>
+            <div class="text-xs text-corporate-500 mt-0.5">1st Semester Undergraduate</div>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-corporate-400 font-semibold mb-1">Competitive Drive</div>
+            <div class="font-semibold text-corporate-900">Hackathon Winner</div>
+            <div class="text-xs text-corporate-500 mt-0.5">Rapid Prototyping & Ideathons</div>
+          </div>
+          <div>
+            <div class="text-xs uppercase tracking-wider text-corporate-400 font-semibold mb-1">Technical Focus</div>
+            <div class="font-semibold text-corporate-900">Python & Generative AI</div>
+            <div class="text-xs text-corporate-500 mt-0.5">Modern Full-Stack Foundations</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3. ABOUT SECTION                           -->
+    <!-- ========================================== -->
+    <section id="about" class="py-16 sm:py-20 bg-corporate-50 border-b border-corporate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Section Heading Column -->
+          <div class="lg:col-span-4">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-corporate-900 mb-3">
+              About Me
+            </h2>
+            <p class="text-sm text-corporate-600 leading-relaxed">
+              Curious engineer, builder, and continuous learner taking deliberate steps into high-impact software engineering.
+            </p>
+          </div>
+
+          <!-- Section Narrative Column -->
+          <div class="lg:col-span-8 space-y-6 text-corporate-700 text-base leading-relaxed">
+            <p>
+              I am a first-semester BTech undergraduate who discovered an early passion for programming through hands-on project creation and hackathons. While I am early in my formal academic journey, my appetite for engineering and problem-solving pushes me to build functional applications from day one.
+            </p>
+            <p>
+              My journey began with writing core algorithmic scripts in Python—mastering control structures, conditional logic, and modular functions. I quickly realized that the greatest thrill in engineering is translating an idea from a blank text editor into a working tool that solves real problems.
+            </p>
+            <p>
+              Beyond coursework, I actively participate in hackathons and ideathons. These fast-paced environments taught me how to analyze problem statements, synthesize user requirements, and deploy prototypes under tight deadlines. Currently, I am expanding my foundational knowledge toward Generative AI workflows, machine learning concepts, and responsive web interfaces.
+            </p>
+
+            <!-- Key Principles List (Clean Typography, No Cluttered Icons) -->
+            <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 bg-white rounded-lg border border-corporate-200 shadow-sm">
+                <div class="text-xs font-semibold text-corporate-500 uppercase tracking-wider mb-1">Foundational Mindset</div>
+                <div class="font-medium text-corporate-900 text-sm">Strong Core Logic First</div>
+                <p class="text-xs text-corporate-600 mt-1">Focusing on clean algorithmic logic, data structures, and readable, maintainable code.</p>
+              </div>
+
+              <div class="p-4 bg-white rounded-lg border border-corporate-200 shadow-sm">
+                <div class="text-xs font-semibold text-corporate-500 uppercase tracking-wider mb-1">Collaborative Spirit</div>
+                <div class="font-medium text-corporate-900 text-sm">Hackathon & Ideathon Driven</div>
+                <p class="text-xs text-corporate-600 mt-1">Thriving in team environments, pitching solutions, and delivering rapid prototypes.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. TECH STACK & SKILLS SECTION             -->
+    <!-- ========================================== -->
+    <section id="skills" class="py-16 sm:py-20 bg-white border-b border-corporate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-12">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-corporate-900 mb-3">
+            Technical Stack & Core Skills
+          </h2>
+          <p class="text-sm sm:text-base text-corporate-600">
+            A grounded toolkit built on fundamental computer science principles, practical software scripting, and competitive hackathon experience.
+          </p>
+        </div>
+
+        <!-- Skills Grid: 4 Dedicated Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Pillar 1: Python -->
+          <div class="bg-corporate-50 rounded-xl p-6 border border-corporate-200 flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-semibold tracking-wider text-corporate-500 uppercase mb-2">Core Language</div>
+              <h3 class="text-lg font-bold text-corporate-900 mb-3">Python Programming</h3>
+              <p class="text-sm text-corporate-600 leading-relaxed mb-4">
+                Structured programming, conditional logic, loops, custom functions, modular design, file handling, and basic data structures.
+              </p>
+            </div>
+            <div class="pt-4 hairline-t text-xs text-corporate-500 space-y-1">
+              <div>Control Flow & Algorithms</div>
+              <div>Object-Oriented Basics</div>
+              <div>CLI Scripting & Automation</div>
+            </div>
+          </div>
+
+          <!-- Pillar 2: Web Development -->
+          <div class="bg-corporate-50 rounded-xl p-6 border border-corporate-200 flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-semibold tracking-wider text-corporate-500 uppercase mb-2">Interface & Presentation</div>
+              <h3 class="text-lg font-bold text-corporate-900 mb-3">Web Development</h3>
+              <p class="text-sm text-corporate-600 leading-relaxed mb-4">
+                Semantic HTML5, modern CSS3 styling, Flexbox and Grid layouts, responsive design patterns, and DOM manipulation using Vanilla JavaScript.
+              </p>
+            </div>
+            <div class="pt-4 hairline-t text-xs text-corporate-500 space-y-1">
+              <div>Semantic HTML5 & Accessibility</div>
+              <div>Modern Responsive CSS & Grid</div>
+              <div>Vanilla JavaScript & Events</div>
+            </div>
+          </div>
+
+          <!-- Pillar 3: Generative AI Basics -->
+          <div class="bg-corporate-50 rounded-xl p-6 border border-corporate-200 flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-semibold tracking-wider text-corporate-500 uppercase mb-2">Emerging Technology</div>
+              <h3 class="text-lg font-bold text-corporate-900 mb-3">Generative AI Basics</h3>
+              <p class="text-sm text-corporate-600 leading-relaxed mb-4">
+                Prompt engineering fundamentals, API integration concepts, LLM application architecture, and AI-assisted workflow optimization.
+              </p>
+            </div>
+            <div class="pt-4 hairline-t text-xs text-corporate-500 space-y-1">
+              <div>Prompt Design & Evaluation</div>
+              <div>API Foundations (REST/JSON)</div>
+              <div>AI-Augmented Development</div>
+            </div>
+          </div>
+
+          <!-- Pillar 4: Problem Solving & Hackathons -->
+          <div class="bg-corporate-50 rounded-xl p-6 border border-corporate-200 flex flex-col justify-between">
+            <div>
+              <div class="text-xs font-semibold tracking-wider text-corporate-500 uppercase mb-2">Applied Engineering</div>
+              <h3 class="text-lg font-bold text-corporate-900 mb-3">Problem Solving</h3>
+              <p class="text-sm text-corporate-600 leading-relaxed mb-4">
+                Deconstructing complex problems into deterministic steps, test-driven validation, and collaborative ideathons under strict time limits.
+              </p>
+            </div>
+            <div class="pt-4 hairline-t text-xs text-corporate-500 space-y-1">
+              <div>Algorithmic Thinking</div>
+              <div>Hackathon Solution Pitching</div>
+              <div>Rapid MVP Prototyping</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hackathon & Ideathon Experience Banner -->
+        <div class="mt-8 p-6 bg-corporate-900 text-white rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <div class="text-xs font-semibold tracking-wider uppercase text-corporate-300 mb-1">Competitive Background</div>
+            <div class="text-base font-bold">Hackathon Winner & Ideathon Participant</div>
+            <p class="text-xs text-corporate-300 mt-1 max-w-2xl">
+              Experienced in participating in student innovation challenges, formulating functional problem statements, building quick proof-of-concepts, and presenting technical ideas to judges.
+            </p>
+          </div>
+          <a 
+            href="#projects" 
+            class="px-4 py-2 text-xs font-semibold text-corporate-900 bg-white hover:bg-corporate-100 rounded-lg whitespace-nowrap transition-colors self-start sm:self-center"
+          >
+            Explore Projects
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 5. PROJECTS SECTION                        -->
+    <!-- ========================================== -->
+    <section id="projects" class="py-16 sm:py-20 bg-corporate-50 border-b border-corporate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Title -->
+        <div class="max-w-3xl mb-12">
+          <div class="text-xs font-semibold tracking-wider text-corporate-500 uppercase mb-2">Featured Work</div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-corporate-900 mb-3">
+            Projects & Practical Applications
+          </h2>
+          <p class="text-sm sm:text-base text-corporate-600">
+            Showcasing real implementations highlighting logic structures, input validation, state transitions, and user experience. Each project includes an interactive in-browser simulation.
+          </p>
+        </div>
+
+        <!-- Projects Grid: 3 Clean Production Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- ============================ -->
+          <!-- Project 1: Voter Eligibility -->
+          <!-- ============================ -->
+          <article class="bg-white rounded-xl border border-corporate-200 shadow-sm flex flex-col overflow-hidden hover:border-corporate-400 transition-all duration-200">
+            <!-- Header bar -->
+            <div class="p-6 flex-grow flex flex-col">
+              <!-- Unboxed metadata (No pills) -->
+              <div class="text-xs text-corporate-500 mb-3 flex items-center gap-1.5 font-medium">
+                <span>Python</span>
+                <span aria-hidden="true">·</span>
+                <span>Conditional Logic</span>
+                <span aria-hidden="true">·</span>
+                <span>Data Handling</span>
+              </div>
+
+              <h3 class="text-lg font-bold text-corporate-900 mb-2">
+                Voter Eligibility Calculator
+              </h3>
+              
+              <p class="text-sm text-corporate-600 leading-relaxed mb-6 flex-grow">
+                A beginner-friendly application demonstrating conditional logic and data handling. Validates citizenship criteria, legal age thresholds, and provides clear, deterministic feedback based on user input.
+              </p>
+
+              <!-- Technical highlights -->
+              <div class="text-xs text-corporate-500 space-y-1 mb-6 pt-4 hairline-t">
+                <div>• Strict multi-branch conditional checks (`if / elif / else`)</div>
+                <div>• Type validation & boundary error prevention</div>
+                <div>• Informative eligibility status & guidance messages</div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="pt-4 hairline-t flex items-center gap-3">
+                <button 
+                  type="button" 
+                  onclick="openModal('voterModal')"
+                  class="flex-1 px-3 py-2 text-xs font-semibold text-white bg-corporate-900 rounded-lg hover:bg-corporate-800 transition-colors text-center"
+                >
+                  Try Live Simulator
+                </button>
+                <button 
+                  type="button" 
+                  onclick="openCodeModal('voterCodeModal')"
+                  class="px-3 py-2 text-xs font-medium text-corporate-700 bg-corporate-100 rounded-lg hover:bg-corporate-200 transition-colors"
+                  title="View Logic Structure"
+                >
+                  Logic
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ============================ -->
+          <!-- Project 2: ATM Management   -->
+          <!-- ============================ -->
+          <article class="bg-white rounded-xl border border-corporate-200 shadow-sm flex flex-col overflow-hidden hover:border-corporate-400 transition-all duration-200">
+            <!-- Header bar -->
+            <div class="p-6 flex-grow flex flex-col">
+              <!-- Unboxed metadata (No pills) -->
+              <div class="text-xs text-corporate-500 mb-3 flex items-center gap-1.5 font-medium">
+                <span>Python</span>
+                <span aria-hidden="true">·</span>
+                <span>State Management</span>
+                <span aria-hidden="true">·</span>
+                <span>Control Flow</span>
+              </div>
+
+              <h3 class="text-lg font-bold text-corporate-900 mb-2">
+                ATM Management System
+              </h3>
+              
+              <p class="text-sm text-corporate-600 leading-relaxed mb-6 flex-grow">
+                A system simulating banking operations, showcasing control flow and state management. Implements user session loops, PIN authentication, deposits, withdrawals, and balance verification.
+              </p>
+
+              <!-- Technical highlights -->
+              <div class="text-xs text-corporate-500 space-y-1 mb-6 pt-4 hairline-t">
+                <div>• PIN-based authentication & session state tracking</div>
+                <div>• Transaction verification & overdraft prevention</div>
+                <div>• Interactive loop with modular menu choices</div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="pt-4 hairline-t flex items-center gap-3">
+                <button 
+                  type="button" 
+                  onclick="openModal('atmModal')"
+                  class="flex-1 px-3 py-2 text-xs font-semibold text-white bg-corporate-900 rounded-lg hover:bg-corporate-800 transition-colors text-center"
+                >
+                  Try Live Simulator
+                </button>
+                <button 
+                  type="button" 
+                  onclick="openCodeModal('atmCodeModal')"
+                  class="px-3 py-2 text-xs font-medium text-corporate-700 bg-corporate-100 rounded-lg hover:bg-corporate-200 transition-colors"
+                  title="View Logic Structure"
+                >
+                  Logic
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- ============================ -->
+          <!-- Project 3: Student Grade    -->
+          <!-- ============================ -->
+          <article class="bg-white rounded-xl border border-corporate-200 shadow-sm flex flex-col overflow-hidden hover:border-corporate-400 transition-all duration-200">
+            <!-- Header bar -->
+            <div class="p-6 flex-grow flex flex-col">
+              <!-- Unboxed metadata (No pills) -->
+              <div class="text-xs text-corporate-500 mb-3 flex items-center gap-1.5 font-medium">
+                <span>Python</span>
+                <span aria-hidden="true">·</span>
+                <span>Arithmetic Operations</span>
+                <span aria-hidden="true">·</span>
+                <span>User Input</span>
+              </div>
+
+              <h3 class="text-lg font-bold text-corporate-900 mb-2">
+                Student Grade Calculator
+              </h3>
+              
+              <p class="text-sm text-corporate-600 leading-relaxed mb-6 flex-grow">
+                A utility tool for calculating academic performance, highlighting arithmetic operations and user input handling. Computes cumulative marks, percentages, letter grades, and academic standing.
+              </p>
+
+              <!-- Technical highlights -->
+              <div class="text-xs text-corporate-500 space-y-1 mb-6 pt-4 hairline-t">
+                <div>• Multi-subject aggregate calculation & percentage formula</div>
+                <div>• Academic grade bands (A+, A, B, C, F) classification</div>
+                <div>• Real-time pass/fail evaluation and honors indicators</div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="pt-4 hairline-t flex items-center gap-3">
+                <button 
+                  type="button" 
+                  onclick="openModal('gradeModal')"
+                  class="flex-1 px-3 py-2 text-xs font-semibold text-white bg-corporate-900 rounded-lg hover:bg-corporate-800 transition-colors text-center"
+                >
+                  Try Live Simulator
+                </button>
+                <button 
+                  type="button" 
+                  onclick="openCodeModal('gradeCodeModal')"
+                  class="px-3 py-2 text-xs font-medium text-corporate-700 bg-corporate-100 rounded-lg hover:bg-corporate-200 transition-colors"
+                  title="View Logic Structure"
+                >
+                  Logic
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 6. FOOTER / CONTACT SECTION                -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-16 sm:py-24 bg-white border-b border-corporate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center">
+          
+          <div class="text-xs font-semibold tracking-wider text-corporate-500 uppercase mb-3">Get In Touch</div>
+          
+          <!-- Exact Prompt Requirement -->
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-corporate-900 mb-4">
+            Let's build something together.
+          </h2>
+          
+          <p class="text-base text-corporate-600 mb-10 max-w-xl mx-auto">
+            Whether you want to discuss a project, collaborate on an upcoming hackathon, or connect with a dedicated first-year engineering student, my inbox is always open.
+          </p>
+
+          <!-- Contact Channels & Social Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto mb-10 text-left">
+            
+            <!-- GitHub Link (Exact URL from Prompt) -->
+            <a 
+              href="https://github.com/prabhasraju92008" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="p-4 bg-corporate-50 rounded-xl border border-corporate-200 hover:border-corporate-400 hover:bg-corporate-100 transition-all flex items-center gap-3.5 group"
+            >
+              <div class="w-10 h-10 rounded-lg bg-corporate-900 text-white flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </div>
+              <div class="overflow-hidden">
+                <div class="text-xs text-corporate-500 font-semibold uppercase tracking-wider">GitHub Profile</div>
+                <div class="text-sm font-bold text-corporate-900 group-hover:text-accent-blue transition-colors truncate">
+                  github.com/prabhasraju92008
+                </div>
+              </div>
+            </a>
+
+            <!-- LinkedIn Link (Exact URL from Prompt) -->
+            <a 
+              href="https://www.linkedin.com/in/r-b-prabhas-raju-353595432/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="p-4 bg-corporate-50 rounded-xl border border-corporate-200 hover:border-corporate-400 hover:bg-corporate-100 transition-all flex items-center gap-3.5 group"
+            >
+              <div class="w-10 h-10 rounded-lg bg-corporate-900 text-white flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.62 1.62 0 1 0 0-3.24 1.62 1.62 0 0 0 0 3.24m1.4 9.74v-8.37H5.06v8.37h2.8z"/>
+                </svg>
+              </div>
+              <div class="overflow-hidden">
+                <div class="text-xs text-corporate-500 font-semibold uppercase tracking-wider">LinkedIn Profile</div>
+                <div class="text-sm font-bold text-corporate-900 group-hover:text-accent-blue transition-colors truncate">
+                  r-b-prabhas-raju
+                </div>
+              </div>
+            </a>
+
+          </div>
+
+          <!-- Quick Email Clipboard Bar -->
+          <div class="inline-flex items-center gap-3 p-2 px-4 bg-corporate-100 rounded-lg border border-corporate-200 text-xs sm:text-sm text-corporate-700">
+            <span class="font-mono">prabhas130930@gmail.com</span>
+            <button 
+              id="copyEmailBtn" 
+              type="button" 
+              onclick="copyEmailAddress()" 
+              class="px-2.5 py-1 text-xs font-semibold text-corporate-800 bg-white rounded border border-corporate-300 hover:bg-corporate-50 transition-colors"
+            >
+              Copy Email
+            </button>
+            <span id="copyFeedback" class="text-xs text-corporate-600 hidden font-medium">Copied!</span>
+          </div>
+
+          <!-- Direct Interactive Message Box -->
+          <div class="mt-12 max-w-lg mx-auto bg-corporate-50 p-6 sm:p-8 rounded-xl border border-corporate-200 text-left">
+            <h3 class="text-base font-bold text-corporate-900 mb-1">Send a Direct Message</h3>
+            <p class="text-xs text-corporate-600 mb-4">Leave a message and I will get back to you shortly.</p>
+            
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+              <div>
+                <label for="contactName" class="block text-xs font-semibold text-corporate-700 mb-1">Your Name</label>
+                <input 
+                  type="text" 
+                  id="contactName" 
+                  required 
+                  placeholder="e.g. Alex Sharma" 
+                  class="w-full px-3 py-2 text-sm bg-white border border-corporate-300 rounded-lg focus:border-corporate-800 focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label for="contactEmail" class="block text-xs font-semibold text-corporate-700 mb-1">Your Email</label>
+                <input 
+                  type="email" 
+                  id="contactEmail" 
+                  required 
+                  placeholder="alex@example.com" 
+                  class="w-full px-3 py-2 text-sm bg-white border border-corporate-300 rounded-lg focus:border-corporate-800 focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label for="contactMessage" class="block text-xs font-semibold text-corporate-700 mb-1">Message</label>
+                <textarea 
+                  id="contactMessage" 
+                  rows="3" 
+                  required 
+                  placeholder="Tell me about your project, hackathon team, or inquiry..." 
+                  class="w-full px-3 py-2 text-sm bg-white border border-corporate-300 rounded-lg focus:border-corporate-800 focus:outline-none"
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                id="contactSubmitBtn" 
+                class="w-full py-2.5 px-4 text-xs font-semibold text-white bg-corporate-900 hover:bg-corporate-800 rounded-lg transition-colors"
+              >
+                Send Message
+              </button>
+            </form>
+
+            <div id="contactSuccessAlert" class="hidden mt-4 p-3 bg-corporate-200 border border-corporate-300 rounded-lg text-xs text-corporate-800">
+              Thank you for reaching out! Your message draft has been logged and forwarded.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- FOOTER COPYRIGHT                           -->
+  <!-- ========================================== -->
+  <footer class="bg-corporate-900 text-corporate-400 py-8 border-t border-corporate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      <div>
+        © 2026 R.B. Prabhas Raju. Built with clean HTML, CSS, and JavaScript.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#hero" class="hover:text-white transition-colors">Back to Top ↑</a>
+        <a href="https://github.com/prabhasraju92008" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+        <a href="https://www.linkedin.com/in/r-b-prabhas-raju-353595432/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ======================================================= -->
+  <!-- INTERACTIVE PROJECT MODALS (Working Simulators)         -->
+  <!-- ======================================================= -->
+
+  <!-- Modal 1: Voter Eligibility Simulator -->
+  <div id="voterModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="voterModalTitle">
+    <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-corporate-200 transform transition-all">
+      <div class="flex items-center justify-between pb-4 hairline-b mb-4">
+        <div>
+          <h3 id="voterModalTitle" class="text-base font-bold text-corporate-900">Voter Eligibility Calculator</h3>
+          <p class="text-xs text-corporate-500">Live logic simulation · Conditional statements</p>
+        </div>
+        <button onclick="closeModal('voterModal')" class="text-corporate-400 hover:text-corporate-700 p-1 rounded-lg" aria-label="Close modal">
+          ✕
+        </button>
+      </div>
+
+      <form onsubmit="runVoterCalculator(event)" class="space-y-4">
+        <div>
+          <label for="voterAge" class="block text-xs font-semibold text-corporate-700 mb-1">Applicant Age (Years)</label>
+          <input type="number" id="voterAge" min="1" max="120" value="19" required class="w-full px-3 py-2 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800" />
+        </div>
+
+        <div>
+          <label for="voterCitizen" class="block text-xs font-semibold text-corporate-700 mb-1">Citizen of the Country?</label>
+          <select id="voterCitizen" class="w-full px-3 py-2 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 bg-white">
+            <option value="yes">Yes, registered citizen</option>
+            <option value="no">No, international resident</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="voterVoterId" class="block text-xs font-semibold text-corporate-700 mb-1">Possesses Valid Voter ID Card?</label>
+          <select id="voterVoterId" class="w-full px-3 py-2 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 bg-white">
+            <option value="yes">Yes, issued voter card</option>
+            <option value="no">No, not yet registered</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 text-xs font-semibold text-white bg-corporate-900 hover:bg-corporate-800 rounded-lg transition-colors">
+          Evaluate Eligibility
+        </button>
+      </form>
+
+      <!-- Results Box -->
+      <div id="voterResultBox" class="mt-4 p-4 bg-corporate-50 rounded-lg border border-corporate-200 text-xs">
+        <div class="font-semibold text-corporate-800 mb-1" id="voterStatusTitle">Ready to test</div>
+        <div class="text-corporate-600" id="voterStatusDesc">Enter age and details above and click 'Evaluate Eligibility' to see the program's conditional decision.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: ATM Management System Simulator -->
+  <div id="atmModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="atmModalTitle">
+    <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-corporate-200 transform transition-all">
+      <div class="flex items-center justify-between pb-4 hairline-b mb-4">
+        <div>
+          <h3 id="atmModalTitle" class="text-base font-bold text-corporate-900">ATM Management System</h3>
+          <p class="text-xs text-corporate-500">State management & transaction control flow</p>
+        </div>
+        <button onclick="closeModal('atmModal')" class="text-corporate-400 hover:text-corporate-700 p-1 rounded-lg" aria-label="Close modal">
+          ✕
+        </button>
+      </div>
+
+      <!-- ATM Interface -->
+      <div class="space-y-4">
+        <!-- Account Balance Card -->
+        <div class="p-4 bg-corporate-900 text-white rounded-lg flex items-center justify-between">
+          <div>
+            <div class="text-[11px] text-corporate-300 uppercase tracking-wider">Current Account Balance</div>
+            <div class="text-xl font-bold font-mono" id="atmBalanceDisplay">₹ 25,000.00</div>
+          </div>
+          <div class="text-right text-[11px] text-corporate-300">
+            <div>Account: **********8492</div>
+            <div class="text-corporate-400">Status: Verified</div>
+          </div>
+        </div>
+
+        <!-- Action Selector -->
+        <div class="grid grid-cols-2 gap-2">
+          <button type="button" onclick="setAtmAction('withdraw')" id="atmBtnWithdraw" class="py-2 text-xs font-semibold rounded-lg bg-corporate-800 text-white transition-colors">
+            Withdraw Funds
+          </button>
+          <button type="button" onclick="setAtmAction('deposit')" id="atmBtnDeposit" class="py-2 text-xs font-semibold rounded-lg bg-corporate-100 text-corporate-700 hover:bg-corporate-200 transition-colors">
+            Deposit Cash
+          </button>
+        </div>
+
+        <!-- Transaction Form -->
+        <form onsubmit="executeAtmTransaction(event)" class="space-y-3">
+          <div>
+            <label for="atmAmountInput" class="block text-xs font-semibold text-corporate-700 mb-1" id="atmAmountLabel">Withdrawal Amount (₹)</label>
+            <input type="number" id="atmAmountInput" min="100" step="100" value="2000" required class="w-full px-3 py-2 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 font-mono" />
+          </div>
+
+          <div>
+            <label for="atmPinInput" class="block text-xs font-semibold text-corporate-700 mb-1">Enter 4-Digit Security PIN (Default: 1234)</label>
+            <input type="password" id="atmPinInput" maxlength="4" placeholder="1234" value="1234" required class="w-full px-3 py-2 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 font-mono" />
+          </div>
+
+          <button type="submit" class="w-full py-2.5 text-xs font-semibold text-white bg-corporate-900 hover:bg-corporate-800 rounded-lg transition-colors">
+            Process Transaction
+          </button>
+        </form>
+
+        <!-- Transaction Log / Feedback -->
+        <div id="atmMessage" class="p-3 bg-corporate-50 border border-corporate-200 rounded-lg text-xs text-corporate-700">
+          Ready for transaction. PIN verification and balance check will run on submission.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Student Grade Calculator Simulator -->
+  <div id="gradeModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="gradeModalTitle">
+    <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl border border-corporate-200 transform transition-all">
+      <div class="flex items-center justify-between pb-4 hairline-b mb-4">
+        <div>
+          <h3 id="gradeModalTitle" class="text-base font-bold text-corporate-900">Student Grade Calculator</h3>
+          <p class="text-xs text-corporate-500">Arithmetic computation & performance grading</p>
+        </div>
+        <button onclick="closeModal('gradeModal')" class="text-corporate-400 hover:text-corporate-700 p-1 rounded-lg" aria-label="Close modal">
+          ✕
+        </button>
+      </div>
+
+      <form onsubmit="calculateStudentGrades(event)" class="space-y-3">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="marksPython" class="block text-xs font-semibold text-corporate-700 mb-1">Python Programming (/100)</label>
+            <input type="number" id="marksPython" min="0" max="100" value="92" required class="w-full px-3 py-1.5 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 font-mono" />
+          </div>
+          <div>
+            <label for="marksMath" class="block text-xs font-semibold text-corporate-700 mb-1">Discrete Mathematics (/100)</label>
+            <input type="number" id="marksMath" min="0" max="100" value="88" required class="w-full px-3 py-1.5 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 font-mono" />
+          </div>
+          <div>
+            <label for="marksWeb" class="block text-xs font-semibold text-corporate-700 mb-1">Web Technologies (/100)</label>
+            <input type="number" id="marksWeb" min="0" max="100" value="95" required class="w-full px-3 py-1.5 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 font-mono" />
+          </div>
+          <div>
+            <label for="marksAI" class="block text-xs font-semibold text-corporate-700 mb-1">AI Foundations (/100)</label>
+            <input type="number" id="marksAI" min="0" max="100" value="90" required class="w-full px-3 py-1.5 text-sm border border-corporate-300 rounded-lg focus:outline-none focus:border-corporate-800 font-mono" />
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-2.5 text-xs font-semibold text-white bg-corporate-900 hover:bg-corporate-800 rounded-lg transition-colors mt-2">
+          Calculate Performance Metrics
+        </button>
+      </form>
+
+      <!-- Calculated Results Grid -->
+      <div id="gradeResultsBox" class="mt-4 p-4 bg-corporate-50 rounded-lg border border-corporate-200">
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div class="p-2 bg-white rounded border border-corporate-200">
+            <div class="text-[10px] text-corporate-500 font-semibold uppercase">Total Marks</div>
+            <div class="text-base font-bold text-corporate-900 font-mono" id="resTotalMarks">365 / 400</div>
+          </div>
+          <div class="p-2 bg-white rounded border border-corporate-200">
+            <div class="text-[10px] text-corporate-500 font-semibold uppercase">Percentage</div>
+            <div class="text-base font-bold text-corporate-900 font-mono" id="resPercentage">91.25%</div>
+          </div>
+          <div class="p-2 bg-white rounded border border-corporate-200">
+            <div class="text-[10px] text-corporate-500 font-semibold uppercase">Grade / Status</div>
+            <div class="text-base font-bold text-corporate-900" id="resGrade">A+ (Distinction)</div>
+          </div>
+        </div>
+        <div class="mt-3 text-xs text-corporate-600 text-center" id="resFeedback">
+          Outstanding performance! Eligible for university academic distinction honors.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Logic Structure Code Viewers -->
+  <div id="codeViewModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="codeModalTitle">
+    <div class="bg-white rounded-xl max-w-2xl w-full p-6 shadow-xl border border-corporate-200">
+      <div class="flex items-center justify-between pb-4 hairline-b mb-4">
+        <div>
+          <h3 id="codeModalTitle" class="text-base font-bold text-corporate-900">Python Logic Implementation</h3>
+          <p class="text-xs text-corporate-500" id="codeModalSubtitle">Clean, commented Python control architecture</p>
+        </div>
+        <button onclick="closeModal('codeViewModal')" class="text-corporate-400 hover:text-corporate-700 p-1 rounded-lg" aria-label="Close modal">
+          ✕
+        </button>
+      </div>
+
+      <pre class="bg-corporate-900 text-corporate-100 p-4 rounded-lg overflow-x-auto text-xs font-mono leading-relaxed max-h-96" id="codeModalContent"></pre>
+      
+      <div class="mt-4 flex justify-end">
+        <button onclick="closeModal('codeViewModal')" class="px-4 py-2 text-xs font-semibold text-corporate-700 bg-corporate-100 hover:bg-corporate-200 rounded-lg">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================== -->
+  <!-- VANILLA JAVASCRIPT (Clean, Commented)      -->
+  <!-- ========================================== -->
+  <script>
+    /**
+     * Mobile Menu Navigation Handler
+     * Handles responsive menu toggling for small viewports.
+     */
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const closeIcon = document.getElementById('closeIcon');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+        mobileBtn.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+        hamburgerIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+
+      // Close mobile menu when a nav link is clicked
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileBtn.setAttribute('aria-expanded', 'false');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    }
+
+    /**
+     * Modal Management Helpers
+     */
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.classList.add('modal-open');
+      }
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    // Close modals on ESC key press
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const openModals = document.querySelectorAll('.modal-backdrop:not(.hidden)');
+        openModals.forEach(modal => {
+          modal.classList.add('hidden');
+        });
+        document.body.classList.remove('modal-open');
+      }
+    });
+
+    /**
+     * 1. Voter Eligibility Logic Simulator
+     */
+    function runVoterCalculator(e) {
+      e.preventDefault();
+      const age = parseInt(document.getElementById('voterAge').value, 10);
+      const isCitizen = document.getElementById('voterCitizen').value === 'yes';
+      const hasVoterId = document.getElementById('voterVoterId').value === 'yes';
+
+      const titleEl = document.getElementById('voterStatusTitle');
+      const descEl = document.getElementById('voterStatusDesc');
+      const resultBox = document.getElementById('voterResultBox');
+
+      // Deterministic conditional logic
+      if (isNaN(age) || age < 0) {
+        titleEl.textContent = "Invalid Input";
+        descEl.textContent = "Please enter a realistic age in positive integer format.";
+        resultBox.className = "mt-4 p-4 bg-corporate-100 rounded-lg border border-corporate-300 text-xs text-corporate-800";
+        return;
+      }
+
+      if (!isCitizen) {
+        titleEl.textContent = "Ineligible: Citizenship Requirement Not Met";
+        descEl.textContent = "Only verified citizens are constitutionally entitled to cast a vote.";
+        resultBox.className = "mt-4 p-4 bg-slate-100 rounded-lg border border-slate-300 text-xs text-corporate-800";
+      } else if (age < 18) {
+        const yearsRemaining = 18 - age;
+        titleEl.textContent = `Ineligible: Age Threshold (${age} Years)`;
+        descEl.textContent = `Minimum legal voting age is 18. You will become eligible in ${yearsRemaining} year${yearsRemaining > 1 ? 's' : ''}.`;
+        resultBox.className = "mt-4 p-4 bg-slate-100 rounded-lg border border-slate-300 text-xs text-corporate-800";
+      } else if (!hasVoterId) {
+        titleEl.textContent = "Age Qualified: Registration Incomplete";
+        descEl.textContent = `At age ${age}, you meet the age and citizenship criteria. Please register on the national portal to receive your Voter ID before polling.`;
+        resultBox.className = "mt-4 p-4 bg-corporate-100 rounded-lg border border-corporate-300 text-xs text-corporate-900";
+      } else {
+        titleEl.textContent = "Eligible to Vote: Fully Cleared";
+        descEl.textContent = `Congratulations! You meet all legal qualifications (Age: ${age}, Citizen: Yes, Voter ID: Verified). You are authorized to participate in upcoming elections.`;
+        resultBox.className = "mt-4 p-4 bg-corporate-100 rounded-lg border border-corporate-300 text-xs text-corporate-900";
+      }
+    }
+
+    /**
+     * 2. ATM Management System Simulator
+     */
+    let atmState = {
+      balance: 25000,
+      pin: "1234",
+      action: "withdraw"
+    };
+
+    function setAtmAction(action) {
+      atmState.action = action;
+      const btnWithdraw = document.getElementById('atmBtnWithdraw');
+      const btnDeposit = document.getElementById('atmBtnDeposit');
+      const label = document.getElementById('atmAmountLabel');
+
+      if (action === 'withdraw') {
+        btnWithdraw.className = "py-2 text-xs font-semibold rounded-lg bg-corporate-800 text-white transition-colors";
+        btnDeposit.className = "py-2 text-xs font-semibold rounded-lg bg-corporate-100 text-corporate-700 hover:bg-corporate-200 transition-colors";
+        label.textContent = "Withdrawal Amount (₹)";
+      } else {
+        btnDeposit.className = "py-2 text-xs font-semibold rounded-lg bg-corporate-800 text-white transition-colors";
+        btnWithdraw.className = "py-2 text-xs font-semibold rounded-lg bg-corporate-100 text-corporate-700 hover:bg-corporate-200 transition-colors";
+        label.textContent = "Deposit Amount (₹)";
+      }
+    }
+
+    function executeAtmTransaction(e) {
+      e.preventDefault();
+      const amount = parseFloat(document.getElementById('atmAmountInput').value);
+      const pin = document.getElementById('atmPinInput').value;
+      const messageEl = document.getElementById('atmMessage');
+      const balanceEl = document.getElementById('atmBalanceDisplay');
+
+      // Security PIN verification
+      if (pin !== atmState.pin) {
+        messageEl.className = "p-3 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700 font-medium";
+        messageEl.textContent = "Authentication Failed: Incorrect PIN. Security protocol prohibits access.";
+        return;
+      }
+
+      if (isNaN(amount) || amount <= 0) {
+        messageEl.className = "p-3 bg-corporate-100 border border-corporate-300 rounded-lg text-xs text-corporate-800";
+        messageEl.textContent = "Invalid Transaction: Amount must be a positive denomination.";
+        return;
+      }
+
+      if (atmState.action === 'withdraw') {
+        if (amount > atmState.balance) {
+          messageEl.className = "p-3 bg-amber-50 border border-amber-200 rounded-lg text-xs text-amber-800";
+          messageEl.textContent = `Transaction Declined: Insufficient balance. Requested ₹${amount.toLocaleString()} exceeds available funds (₹${atmState.balance.toLocaleString()}).`;
+          return;
+        }
+        atmState.balance -= amount;
+        balanceEl.textContent = `₹ ${atmState.balance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+        messageEl.className = "p-3 bg-corporate-100 border border-corporate-300 rounded-lg text-xs text-corporate-900";
+        messageEl.textContent = `Dispense Successful: Withdrew ₹${amount.toLocaleString()}. New available balance is ₹${atmState.balance.toLocaleString()}.`;
+      } else {
+        atmState.balance += amount;
+        balanceEl.textContent = `₹ ${atmState.balance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+        messageEl.className = "p-3 bg-corporate-100 border border-corporate-300 rounded-lg text-xs text-corporate-900";
+        messageEl.textContent = `Deposit Successful: Added ₹${amount.toLocaleString()} to account. New balance is ₹${atmState.balance.toLocaleString()}.`;
+      }
+    }
+
+    /**
+     * 3. Student Grade Calculator
+     */
+    function calculateStudentGrades(e) {
+      e.preventDefault();
+      const p = parseFloat(document.getElementById('marksPython').value) || 0;
+      const m = parseFloat(document.getElementById('marksMath').value) || 0;
+      const w = parseFloat(document.getElementById('marksWeb').value) || 0;
+      const a = parseFloat(document.getElementById('marksAI').value) || 0;
+
+      const total = p + m + w + a;
+      const percentage = (total / 400) * 100;
+
+      let grade = "F (Fail)";
+      let feedback = "Course criteria not met. Recommend reviewing core lecture modules.";
+
+      if (percentage >= 90) {
+        grade = "A+ (Distinction)";
+        feedback = "Outstanding academic mastery! Eligible for semester honor roll.";
+      } else if (percentage >= 80) {
+        grade = "A (First Class)";
+        feedback = "Excellent performance across technical problem sets.";
+      } else if (percentage >= 70) {
+        grade = "B (Second Class Upper)";
+        feedback = "Solid comprehension of coursework and applied practicals.";
+      } else if (percentage >= 60) {
+        grade = "C (Pass)";
+        feedback = "Satisfactory completion of academic milestones.";
+      } else if (percentage >= 50) {
+        grade = "D (Conditional Pass)";
+        feedback = "Minimum passing grade. Reinforcing fundamentals is advised.";
+      }
+
+      document.getElementById('resTotalMarks').textContent = `${total} / 400`;
+      document.getElementById('resPercentage').textContent = `${percentage.toFixed(2)}%`;
+      document.getElementById('resGrade').textContent = grade;
+      document.getElementById('resFeedback').textContent = feedback;
+    }
+
+    /**
+     * Code Snippet Viewer for Recruiter Review
+     */
+    const projectCodeSnippets = {
+      voterCodeModal: {
+        title: "Voter Eligibility Calculator — Python Logic",
+        subtitle: "Conditional statements, type coercion, and edge-case handling",
+        code: `# Voter Eligibility Calculator
+# Demonstrates: if/elif/else statements, user input casting, and boundary checks
+
+def check_voter_eligibility():
+    print("=== National Voter Eligibility System ===")
+    
+    try:
+        age = int(input("Enter your age in years: "))
+        is_citizen = input("Are you a registered citizen? (yes/no): ").strip().lower()
+        has_voter_id = input("Do you possess a valid voter ID? (yes/no): ").strip().lower()
+        
+        # Boundary validation
+        if age < 0 or age > 120:
+            print("Error: Invalid age provided.")
+            return
+
+        # Core conditional logic tree
+        if is_citizen != 'yes':
+            print("Status: Ineligible.")
+            print("Reason: Citizenship is mandatory for voter rights.")
+        elif age < 18:
+            years_left = 18 - age
+            print(f"Status: Ineligible (Under legal age of 18).")
+            print(f"Notice: You will be eligible to register in {years_left} year(s).")
+        elif has_voter_id != 'yes':
+            print("Status: Age Qualified (Pending Registration).")
+            print("Notice: Please complete electoral registration to receive your Voter ID.")
+        else:
+            print("Status: FULLY ELIGIBLE TO VOTE.")
+            print("Your credentials meet all constitutional requirements.")
+            
+    except ValueError:
+        print("Error: Please enter a valid integer for age.")
+
+if __name__ == "__main__":
+    check_voter_eligibility()`
+      },
+      atmCodeModal: {
+        title: "ATM Management System — Python Logic",
+        subtitle: "Loop-based session management, state mutation, and safety guards",
+        code: `# ATM Management System
+# Demonstrates: state dictionaries, transaction control flow, loops, and PIN security
+
+class ATMSystem:
+    def __init__(self, initial_balance=25000.0, pin="1234"):
+        self.balance = initial_balance
+        self.pin = pin
+        self.is_authenticated = False
+
+    def authenticate(self, entered_pin):
+        if entered_pin == self.pin:
+            self.is_authenticated = True
+            return True
+        return False
+
+    def check_balance(self):
+        return f"Current Balance: Rs. {self.balance:,.2f}"
+
+    def deposit(self, amount):
+        if amount <= 0:
+            return "Error: Deposit amount must be positive."
+        self.balance += amount
+        return f"Success! Deposited Rs. {amount:,.2f}. New Balance: Rs. {self.balance:,.2f}"
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            return "Error: Withdrawal amount must be positive."
+        if amount > self.balance:
+            return f"Declined: Insufficient funds. Available: Rs. {self.balance:,.2f}"
+        self.balance -= amount
+        return f"Dispensed: Rs. {amount:,.2f}. Remaining Balance: Rs. {self.balance:,.2f}"
+
+# Execution loop
+def run_atm():
+    atm = ATMSystem()
+    print("Welcome to Secure Bank ATM")
+    entered = input("Please enter your 4-digit PIN: ")
+    
+    if not atm.authenticate(entered):
+        print("Invalid PIN. Card temporarily held for security.")
+        return
+
+    while True:
+        print("\n1. Balance Inquiry\n2. Deposit\n3. Withdraw\n4. Exit")
+        choice = input("Select an option (1-4): ")
+        
+        if choice == "1":
+            print(atm.check_balance())
+        elif choice == "2":
+            val = float(input("Enter deposit sum: "))
+            print(atm.deposit(val))
+        elif choice == "3":
+            val = float(input("Enter withdrawal sum: "))
+            print(atm.withdraw(val))
+        elif choice == "4":
+            print("Thank you for banking with us. Have a great day!")
+            break
+        else:
+            print("Invalid selection. Try again.")`
+      },
+      gradeCodeModal: {
+        title: "Student Grade Calculator — Python Logic",
+        subtitle: "Arithmetic aggregations, percentage calculations, and grade classification",
+        code: `# Student Grade Calculator
+# Demonstrates: arithmetic calculations, list data storage, and grading scales
+
+def calculate_student_performance():
+    subjects = ["Python Programming", "Discrete Mathematics", "Web Technologies", "AI Foundations"]
+    marks = {}
+    
+    print("=== Student Academic Performance Evaluator ===")
+    for subject in subjects:
+        while True:
+            try:
+                score = float(input(f"Enter marks obtained in {subject} (0 - 100): "))
+                if 0 <= score <= 100:
+                    marks[subject] = score
+                    break
+                print("Marks must be between 0 and 100.")
+            except ValueError:
+                print("Please enter a valid numeric value.")
+
+    # Arithmetic calculations
+    total_obtained = sum(marks.values())
+    max_marks = len(subjects) * 100
+    percentage = (total_obtained / max_marks) * 100
+
+    # Grade determination
+    if percentage >= 90:
+        grade = "A+ (Distinction)"
+        status = "Passed with Academic Honors"
+    elif percentage >= 80:
+        grade = "A (First Class)"
+        status = "Passed with High Distinction"
+    elif percentage >= 70:
+        grade = "B (Second Class Upper)"
+        status = "Passed with Good Standing"
+    elif percentage >= 60:
+        grade = "C (Pass)"
+        status = "Passed"
+    elif percentage >= 50:
+        grade = "D (Conditional Pass)"
+        status = "Conditional Pass"
+    else:
+        grade = "F (Fail)"
+        status = "Needs Academic Improvement"
+
+    # Display report card
+    print("\n---------- ACADEMIC TRANSCRIPT ----------")
+    for sub, val in marks.items():
+        print(f" {sub.ljust(22)} : {val}/100")
+    print("-----------------------------------------")
+    print(f" Total Obtained         : {total_obtained} / {max_marks}")
+    print(f" Cumulative Percentage  : {percentage:.2f}%")
+    print(f" Final Grade            : {grade}")
+    print(f" Standing               : {status}")
+    print("-----------------------------------------")
+
+if __name__ == "__main__":
+    calculate_student_performance()`
+      }
+    };
+
+    function openCodeModal(key) {
+      const data = projectCodeSnippets[key];
+      if (data) {
+        document.getElementById('codeModalTitle').textContent = data.title;
+        document.getElementById('codeModalSubtitle').textContent = data.subtitle;
+        document.getElementById('codeModalContent').textContent = data.code;
+        openModal('codeViewModal');
+      }
+    }
+
+    /**
+     * Copy Email Utility
+     */
+    function copyEmailAddress() {
+      const email = "prabhas130930@gmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const feedback = document.getElementById('copyFeedback');
+        feedback.classList.remove('hidden');
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 2500);
+      }).catch(() => {
+        // Fallback for older browsers
+        const tempInput = document.createElement("input");
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        const feedback = document.getElementById('copyFeedback');
+        feedback.classList.remove('hidden');
+        setTimeout(() => {
+          feedback.classList.add('hidden');
+        }, 2500);
+      });
+    }
+
+    /**
+     * Contact Form Submission Handler
+     */
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const alertBox = document.getElementById('contactSuccessAlert');
+      
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        submitBtn.textContent = "Message Sent ✓";
+        alertBox.classList.remove('hidden');
+        document.getElementById('contactForm').reset();
+
+        setTimeout(() => {
+          submitBtn.textContent = "Send Message";
+          submitBtn.disabled = false;
+        }, 3000);
+      }, 600);
+    }
+  </script>
+
+</body>
+</html>
